@@ -1,9 +1,12 @@
+from pathlib import Path
+
+current_dir = Path(__file__).parent
 def total_salary(path:str)->int:
     try:
-        with open(path) as (fh):
-            all_file = [int(el.strip().split(',')[1]) for el in fh.readlines()]
-            total = sum(all_file)
-            average = int(total/len( all_file))
+        with open(current_dir / path,"r", encoding="utf-8") as fh:
+            all_salaries = [int(el.strip().split(',')[1]) for el in fh.readlines()]
+            total = sum(all_salaries)
+            average = int(total/len( all_salaries))
 
         return (total,average)
     except Exception as err:
