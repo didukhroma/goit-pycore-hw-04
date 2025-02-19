@@ -16,13 +16,17 @@ def main():
                 case "hello":
                     print("Hello, how can I help you?")                    
                 case "add":
-                    add_contact(args,contacts)                    
+                    result = add_contact(args,contacts)   
+                    print(result)                 
                 case "change":
-                    update_contact(args,contacts)
+                    result = update_contact(args,contacts)
+                    print(result)
                 case "phone":
-                    show_phone(args,contacts)
+                    result = show_phone(args,contacts)
+                    print(result)
                 case "all":
-                    show_all(contacts)
+                    result = show_all(contacts)
+                    print(result)
                 case "close" | "exit":
                     print("Goodbye!")
                     break

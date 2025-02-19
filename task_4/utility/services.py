@@ -1,40 +1,36 @@
 def add_contact(args,contacts):
     if not len(args) == 2:
-        print("Please check arguments")
-        return
+        return "Please check arguments"        
 
     name,phone = args
     contacts[name]=phone
-    print(f"Contact {name} added.")
+    return f"Contact {name} added."
 
 def update_contact(args,contacts):
     if not len(args) == 2:
-        print("Please check arguments")
-        return
+        return "Please check arguments"
 
     name,phone = args
     contacts[name]=phone
-    print(f"Contact {name} updated.")
+    return f"Contact {name.capitalize()} updated."
 
 def show_all(contacts):    
-    print("Contacts list") 
     if not len(contacts):
-        print("List is empty.Please add contacts")   
+        return "List is empty.Please add contacts"   
 
+    data_str=""
     for name,phone in contacts.items():
-        print(f"Name: {name.capitalize()} --- Phone number: {phone}")
-    
+        data_str += f"Name: {name.capitalize()} --- Phone number: {phone}\n"
+    return data_str
 
 def show_phone(args,contacts):
     if not len(args) == 1:
-        print("Please check arguments")
-        return
+        return "Please check arguments"
 
     name=args[0]
     if name in contacts.keys():
-        print("Contact found")
-        print(f"Name: {name.capitalize()} --- Phone number: {contacts[name]}")
+        return f"Name: {name.capitalize()} --- Phone number: {contacts[name]}"
     else:
-        print(f"Contact {name.capitalize()} not found")
+        return f"Contact {name.capitalize()} not found"
 
     
